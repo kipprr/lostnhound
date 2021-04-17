@@ -15,24 +15,27 @@ import Signup from './Signup'
 import AddPet from './AddPet'
 import PetPage from './PetPage'
 import EnterSite from './EnterSite'
-import { useAuth } from '../context/AuthContext'
+import PrivateRoute from './PrivateRoute'
+import RedirectRoute from './RedirectRoute'
+import { AuthProvider } from "../context/AuthContext";
 
 
 function App() {
 
-  const { currentUser } = useAuth()
-
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          <Route path="/" exact component={() => <Home />} />
-          <Route path="/addpet" exact component={() => <AddPet />} />
-          <Route path="/dashboard" exact component={() => <PetPage />} />
-          <Route path="/" component={() => <EnterSite />} />
+      <AuthProvider>
+        <Router>
+          <Switch>
+            <Route path="/" exact component={() => <Home />} />
+            <Route path="/addpet" exact component={() => <AddPet />} />
+            <PrivateRoute path="/dashboard" component={PetPage} />
+            <RedirectRoute path="/" component={() => <EnterSite />} />
 
-        </Switch>
-      </Router>
+          </Switch>
+        </Router>
+      </AuthProvider>
+      
     </div>
   );
 }
