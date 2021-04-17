@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './Header'
 import Signup from './Signup'
-import { auth, firestore } from '../firebase.js'
+import { auth } from '../firebase.js'
 import { useAuthState } from 'react-firebase-hooks/auth'
 // import {useCollectionData } from 'react-firebase-hooks'
 
