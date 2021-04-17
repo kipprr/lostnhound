@@ -14,18 +14,23 @@ import Login from './Login'
 import Signup from './Signup'
 import AddPet from './AddPet'
 import PetPage from './PetPage'
+import EnterSite from './EnterSite'
+import { useAuth } from '../context/AuthContext'
 
 
 function App() {
+
+  const { currentUser } = useAuth()
+
   return (
     <div className="App">
       <Router>
         <Switch>
           <Route path="/" exact component={() => <Home />} />
-          <Route path="/login" exact component={() => <Login />} />
-          <Route path="/signup" exact component={() => <Signup />} />
           <Route path="/addpet" exact component={() => <AddPet />} />
-          <Route path="/:petid" exact component={() => <PetPage />} />
+          <Route path="/dashboard" exact component={() => <PetPage />} />
+          <Route path="/" component={() => <EnterSite />} />
+
         </Switch>
       </Router>
     </div>
