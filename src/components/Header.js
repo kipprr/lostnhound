@@ -1,4 +1,5 @@
 import React from 'react'
+import SignOutButton from './SignOutButton'
 
 function Header() {
     return (
@@ -6,6 +7,7 @@ function Header() {
             <p>sidebar logo</p>
             <p>lost n hound</p>
             <p>login button</p>
+            <SignOutButton />
         </div>
     )
 }

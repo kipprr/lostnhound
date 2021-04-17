@@ -9,11 +9,11 @@ import {
   useLocation
 } from "react-router-dom";
 
-import Home from './components/Home'
-import Login from './components/Login'
-import Signup from './components/Signup'
-import AddPet from './components/AddPet'
-import PetPage from './components/PetPage'
+import Home from './Home'
+import Login from './Login'
+import Signup from './Signup'
+import AddPet from './AddPet'
+import PetPage from './PetPage'
 
 
 function App() {
