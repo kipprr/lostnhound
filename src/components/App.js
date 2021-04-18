@@ -20,6 +20,7 @@ import RedirectRoute from './RedirectRoute'
 import { AuthProvider } from "../context/AuthContext";
 import LoginContainer from './LoginContainer'
 import SignupContainer from './SIgnupContainer'
+import { PetProvider } from '../context/PetContext'
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
   return (
     <div className="App">
       <AuthProvider>
+        {/* <PetProvider> */}
         <Router>
           <Switch>
             <RedirectRoute path="/" exact component={() => <Home />} />
@@ -34,10 +36,11 @@ function App() {
             <PrivateRoute path="/dashboard" component={PetPage} />
             <RedirectRoute path="/login" component={() => <LoginContainer />} />
             <RedirectRoute path="/signup" component={() => <SignupContainer />} />
-            <Route path="/pet/:id" component={() =><PetDisplayOfficial  />} />
-
+            <Route path="/pet/:id" component={() =><PetProvider><PetDisplayOfficial  /></PetProvider>} />
+            
           </Switch>
         </Router>
+        {/* </PetProvider> */}
       </AuthProvider>
       
     </div>
