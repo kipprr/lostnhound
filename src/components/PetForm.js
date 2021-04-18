@@ -4,15 +4,17 @@ import { useAuth } from '../context/AuthContext'
 import { useHistory } from 'react-router-dom'
 import { firestore } from '../firebase.js'
 
+
 function PetForm(){
 
     const nameRef = useRef();
     const descriptionRef = useRef();
     const statusRef = useRef();
-    const { signup } = useAuth();
+    const { currentUser } = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const history = useHistory()
+    const petsRef = firestore.collection('pets')
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -24,6 +26,18 @@ function PetForm(){
         // if (passwordRef.current.value.length < 6) {
         //     return setError('Password must be at least 6 characters')
         // }
+
+        var lostStatus = false;
+
+        if (statusRef.current.value === 'Yes, my pet is currently lost.') {
+            lostStatus = true;
+        }
+
+        if (statusRef.current.value === 'No, my pet is not currently lost.') {
+            lostStatus = false;
+        }
+
+        const uid = currentUser.uid;
         
         try {
             // make a new pet
@@ -33,7 +47,12 @@ function PetForm(){
             // setLoading(true); // this is so that the user cannot click submit more than once while the page is loading
             // await signup(emailRef.current.value, passwordRef.current.value);
             // history.push("/dashboard")
-            const petsRef = firestore.collection('pets')
+            await petsRef.add({
+                name: nameRef.current.value,
+                description: descriptionRef.current.value,
+                lost: lostStatus,
+                uid
+            })
 
 
         } catch  {

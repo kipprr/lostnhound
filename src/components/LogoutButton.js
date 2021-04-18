@@ -10,6 +10,7 @@ async function handleLogout() {
     try {
         await logout()
     } catch {
+        //fix this (make it better)
         console.log("error")
     }
 }
