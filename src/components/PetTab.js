@@ -1,14 +1,15 @@
 import React from 'react'
+import {ListGroup } from 'react-bootstrap'
 
 function PetTab(props) {
-    const { name, description, lost } = props.pet;
+    const { id, name, description, lost } = props.pet
+    var Name = name[0].toUpperCase() + name.substring(1)
 
+    var temp = "#" + id
     return (
-        <div>
-            <p>{name}</p>
-            <p>{description}</p>
-            <p>{lost.toString()}</p>
-        </div>
+            <ListGroup.Item action href={temp}>
+                {Name}
+            </ListGroup.Item>
     )
 }
 
