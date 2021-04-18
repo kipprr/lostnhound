@@ -28,7 +28,6 @@ function App() {
   return (
     <div className="App">
       <AuthProvider>
-        {/* <PetProvider> */}
         <Router>
           <Switch>
             <RedirectRoute path="/" exact component={() => <Home />} />
@@ -36,11 +35,10 @@ function App() {
             <PrivateRoute path="/dashboard" component={PetPage} />
             <RedirectRoute path="/login" component={() => <LoginContainer />} />
             <RedirectRoute path="/signup" component={() => <SignupContainer />} />
-            <Route path="/pet/:id" component={() =><PetProvider><PetDisplayOfficial  /></PetProvider>} />
+            <Route path="/pet/:id" component={() =><PetDisplayOfficial  />} />
             
           </Switch>
         </Router>
-        {/* </PetProvider> */}
       </AuthProvider>
       
     </div>
