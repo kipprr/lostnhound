@@ -3,17 +3,17 @@ import Header from './Header'
 import PetDisplay from './PetDisplay'
 import Sidebar from './Sidebar';
 import PetForm from './PetForm';
+import '../css/Sidebar.css'
 import { Container, Row, Col } from 'react-bootstrap'
 
 function PetPage(){
     return (
         <div>
             <Header />
-        
-                <Row>
-                    <Col ><Sidebar /></Col>
-                    <Col ><PetForm /></Col>
-                </Row>
+            <Container fluid className="test">
+                <Sidebar />
+            </Container>
+           
            
         
             

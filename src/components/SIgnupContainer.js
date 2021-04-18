@@ -20,7 +20,7 @@ import { AuthProvider } from '../context/AuthContext'
 
 
 
-function EnterSite() {
+function SignupContainer() {
     return (
         <div>
             <AuthProvider>
@@ -29,8 +29,7 @@ function EnterSite() {
                     style={{ minHeight: "100vh"}}
                 >
                     <div className="w-100" style={{ maxWidth: '400px' }} >
-                        <Route path="/login" exact component={() => <Login />} />
-                        <Route path="/signup" exact component={() => <Signup />} />
+                         <Signup />
                     </div> 
                     
                 </Container>
@@ -39,4 +38,4 @@ function EnterSite() {
     )
 }
 
-export default EnterSite
+export default SignupContainer

@@ -8,16 +8,18 @@ import {
   useHistory,
   useLocation
 } from "react-router-dom";
-
+import PetDisplayOfficial from './PetDisplayOfficial'
 import Home from './Home'
 import Login from './Login'
 import Signup from './Signup'
 import AddPet from './AddPet'
 import PetPage from './PetPage'
-import EnterSite from './EnterSite'
+import EnterSite from './SIgnupContainer'
 import PrivateRoute from './PrivateRoute'
 import RedirectRoute from './RedirectRoute'
 import { AuthProvider } from "../context/AuthContext";
+import LoginContainer from './LoginContainer'
+import SignupContainer from './SIgnupContainer'
 
 
 function App() {
@@ -27,10 +29,12 @@ function App() {
       <AuthProvider>
         <Router>
           <Switch>
-            <Route path="/" exact component={() => <Home />} />
-            <Route path="/addpet" exact component={() => <AddPet />} />
+            <RedirectRoute path="/" exact component={() => <Home />} />
+            <PrivateRoute path="/addpet" exact component={() => <AddPet />} />
             <PrivateRoute path="/dashboard" component={PetPage} />
-            <RedirectRoute path="/" component={() => <EnterSite />} />
+            <RedirectRoute path="/login" component={() => <LoginContainer />} />
+            <RedirectRoute path="/signup" component={() => <SignupContainer />} />
+            <Route path="/pet/:id" component={() =><PetDisplayOfficial  />} />
 
           </Switch>
         </Router>

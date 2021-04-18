@@ -3,3 +3,17 @@
     bottom: 0;
     background-color: bisque;
 }
+
+.test {
+    background-color: chartreuse;
+}
+
+.addPetButton {
+    margin-top: 10px;
+}
+
+.nonHeader {
+    margin-top: 55px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

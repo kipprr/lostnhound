@@ -6,17 +6,23 @@ import "../css/Sidebar.css"
 import { useAuth } from '../context/AuthContext'
 import { firestore } from '../firebase.js'
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { useHistory } from 'react-router-dom'
 
 function Sidebar(){
 
     const { currentUser } = useAuth()
 
     const petsRef = firestore.collection('pets')
-    const query = petsRef.where("uid","==", currentUser.uid);
+    const query = petsRef.where("uid","==", currentUser.uid)
     const [pets] = useCollectionData(query, {idField: 'id'})
+    const history = useHistory()
+
+    function handleAddPet() {
+            history.push('/addpet');
+    }
 
     return (
-        <div style={{backgroundColor: "lightblue", paddingTop: 60}}>
+        <div className="nonHeader">
             <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
             <Row>
                 <Col sm={4}>
@@ -33,18 +39,7 @@ function Sidebar(){
             </Tab.Container>
             
          
-            <Button>Add Pet</Button>
-          
-            <div id="footer">
-                <div>
-                    <p>settings button</p>
-                </div>
-                <div>
-                    <p>logout button</p>
-                </div>
-                
-                
-            </div>
+            <Button className="addPetButton" onClick={handleAddPet}>Add Pet</Button>
             
         </div>
     )

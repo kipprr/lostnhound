@@ -46,13 +46,14 @@ function PetForm(){
             // setError('');
             // setLoading(true); // this is so that the user cannot click submit more than once while the page is loading
             // await signup(emailRef.current.value, passwordRef.current.value);
-            // history.push("/dashboard")
+           
             await petsRef.add({
                 name: nameRef.current.value,
                 description: descriptionRef.current.value,
                 lost: lostStatus,
                 uid
             })
+            history.push("/dashboard")
 
 
         } catch  {
