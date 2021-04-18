@@ -1,13 +1,19 @@
 import React from 'react'
 import SignOutButton from './SignOutButton'
+import LogoutButton from './LogoutButton'
+import { Navbar } from 'react-bootstrap'
 
 function Header() {
     return (
         <div>
-            <p>sidebar logo</p>
-            <p>lost n hound</p>
-            <p>login button</p>
-            <SignOutButton />
+            <Navbar bg="light" expand="lg" fixed="top">
+                <Navbar.Brand href="#home">lost n hound</Navbar.Brand>
+                <Navbar.Toggle />
+                <Navbar.Collapse className="justify-content-end">
+                    <LogoutButton />
+                </Navbar.Collapse>
+            </Navbar>
+            
         </div>
     )
 }

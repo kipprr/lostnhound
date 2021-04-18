@@ -1,8 +1,14 @@
 import React from 'react'
 
-function PetTab() {
+function PetTab(props) {
+    const { name, description, lost } = props.pet;
+
     return (
-        <button>Pet Name</button> //get petname from firestore //check for auth??
+        <div>
+            <p>{name}</p>
+            <p>{description}</p>
+            <p>{lost.toString()}</p>
+        </div>
     )
 }
 

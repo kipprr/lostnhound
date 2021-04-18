@@ -4,11 +4,14 @@ import { Card, Button } from 'react-bootstrap'
 import { useAuth } from '../context/AuthContext'
 
 function LogoutButton(){
-
     const { logout } = useAuth()
 
-function handleLogout() {
-
+async function handleLogout() {
+    try {
+        await logout()
+    } catch {
+        console.log("error")
+    }
 }
 
     return (

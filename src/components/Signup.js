@@ -20,7 +20,11 @@ function Signup(){
         e.preventDefault();
 
         if (passwordRef.current.value !== passwordConfirmationRef.current.value) {
-            return setError('Passwords do not match');
+            return setError('Passwords do not match')
+        }
+
+        if (passwordRef.current.value.length < 6) {
+            return setError('Password must be at least 6 characters')
         }
         
         try {
@@ -28,8 +32,13 @@ function Signup(){
             setLoading(true); // this is so that the user cannot click submit more than once while the page is loading
             await signup(emailRef.current.value, passwordRef.current.value);
             history.push("/dashboard")
-        } catch {
-            setError('Failed to create an account');
+        } catch  {
+            if (error == 'Failed to create an account') {
+                setError('Failed to create an account. May be invalid email address.')
+            } else {
+                setError('Failed to create an account')
+            }
+            
         }
         setLoading(false);
         
