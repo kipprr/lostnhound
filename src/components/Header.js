@@ -7,7 +7,7 @@ function Header() {
     return (
         <div>
             <Navbar bg="light" expand="lg" fixed="top">
-                <Navbar.Brand href="#home">lost n hound</Navbar.Brand>
+                <Navbar.Brand >Lost n Hound</Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                     <LogoutButton />

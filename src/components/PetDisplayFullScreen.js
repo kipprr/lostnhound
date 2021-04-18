@@ -14,7 +14,7 @@ function PetDisplayFullScreen(props){
         messagePart2 = "Please contact the owners to get " + Name + " home safely."
         messagePart3 = contact
     } else {
-        message = Name + "is not lost."
+        message = Name + " is not lost."
         messagePart2 = "Thanks for checking in!"
     }
 

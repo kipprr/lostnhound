@@ -21,7 +21,7 @@ function Home() {
     return (
         <div >
             <Jumbotron style={{margin: 20}}>
-                <h1>lost n hound</h1>
+                <h1>Lost n Hound</h1>
                 <h4>
                     A safety net to help find your pet if they ever get lost.
                 </h4>
