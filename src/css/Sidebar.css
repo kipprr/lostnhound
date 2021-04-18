@@ -1,12 +1,8 @@
 #footer {
     position: fixed;
     bottom: 0;
-    background-color: bisque;
 }
 
-.test {
-    background-color: chartreuse;
-}
 
 .addPetButton {
     margin-top: 10px;

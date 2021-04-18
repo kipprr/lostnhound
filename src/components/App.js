@@ -21,6 +21,7 @@ import { AuthProvider } from "../context/AuthContext";
 import LoginContainer from './LoginContainer'
 import SignupContainer from './SIgnupContainer'
 import { PetProvider } from '../context/PetContext'
+import PetEditForm from './PetEditForm'
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             <PrivateRoute path="/dashboard" component={PetPage} />
             <RedirectRoute path="/login" component={() => <LoginContainer />} />
             <RedirectRoute path="/signup" component={() => <SignupContainer />} />
+            <PrivateRoute path="/edit/:id" component={() =><PetEditForm  />} />
             <Route path="/pet/:id" component={() =><PetDisplayOfficial  />} />
             
           </Switch>

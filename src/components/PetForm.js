@@ -10,6 +10,7 @@ function PetForm(){
     const nameRef = useRef();
     const descriptionRef = useRef();
     const statusRef = useRef();
+    const contactRef = useRef()
     const { currentUser } = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -51,6 +52,7 @@ function PetForm(){
                 name: nameRef.current.value,
                 description: descriptionRef.current.value,
                 lost: lostStatus,
+                contact: contactRef.current.value,
                 uid
             })
             history.push("/dashboard")
@@ -89,7 +91,12 @@ function PetForm(){
                         <option>No, my pet is not currently lost.</option>
                     </Form.Control>
                 </Form.Group>
-                <Button disabled={loading} className="w-100" type="submit">Continue</Button>
+                <Form.Group id="contact">
+                    <Form.Label>List the contact information that you would like to be displayed if your pet is lost.</Form.Label>
+                    <Form.Control as="textarea" ref={contactRef} required>
+                    </Form.Control>
+                </Form.Group>
+                <Button disabled={loading} className="w-100" type="submit">Submit</Button>
             </Form>
        </Container>
     )

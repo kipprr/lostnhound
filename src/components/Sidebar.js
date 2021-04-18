@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PetTab from './PetTab'
 import PetDisplay from './PetDisplay'
-import { Navbar, Card, Button, Container , Tab, Row, Col, ListGroup, ListGroupItem, Sonnet} from 'react-bootstrap'
+import { Modal, Navbar, Card, Button, Container , Tab, Row, Col, ListGroup, ListGroupItem, Sonnet} from 'react-bootstrap'
 import "../css/Sidebar.css"
 import { useAuth } from '../context/AuthContext'
 import { firestore } from '../firebase.js'
@@ -16,6 +16,9 @@ function Sidebar(){
     const query = petsRef.where("uid","==", currentUser.uid)
     const [pets] = useCollectionData(query, {idField: 'id'})
     const history = useHistory()
+    const [show, setShow] = useState(false);
+
+    
 
     function handleAddPet() {
             history.push('/addpet');
@@ -23,6 +26,7 @@ function Sidebar(){
 
     return (
         <div className="nonHeader">
+
             <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
             <Row>
                 <Col sm={4}>
@@ -38,9 +42,9 @@ function Sidebar(){
             </Row>
             </Tab.Container>
             
-         
-            <Button className="addPetButton" onClick={handleAddPet}>Add Pet</Button>
-            
+            <Navbar fixed="bottom">
+                <Button className="addPetButton" onClick={handleAddPet}>Add Pet</Button>
+            </Navbar>
         </div>
     )
 }
