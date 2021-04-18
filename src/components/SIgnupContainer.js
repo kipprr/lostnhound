@@ -17,19 +17,19 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 // import {useCollectionData } from 'react-firebase-hooks'
 import { Container } from 'react-bootstrap'
 import { AuthProvider } from '../context/AuthContext'
-import PetForm from './PetForm'
 
-function AddPet(){
+
+
+function SignupContainer() {
     return (
         <div>
             <AuthProvider>
-                <Header />
                 <Container
                     className="d-flex align-items-center justify-content-center"
                     style={{ minHeight: "100vh"}}
                 >
                     <div className="w-100" style={{ maxWidth: '400px' }} >
-                        <PetForm />
+                         <Signup />
                     </div> 
                     
                 </Container>
@@ -38,4 +38,4 @@ function AddPet(){
     )
 }
 
-export default AddPet;
+export default SignupContainer
