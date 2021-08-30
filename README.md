@@ -15,5 +15,6 @@ Lost n Hound is a web app that uses React, Firebase, Javascript, HTML, CSS, and 
 
 ## See the project
 https://devpost.com/software/lost-n-hound 
+August 2021: Firebase security rules need to be updated before changes to the database can be made, so look at the video at the link above to see functionality while I update Firebase security rules.
 
 
